@@ -1,4 +1,6 @@
-import static ui.UIMenu.*; //Debo utilizar de esta forma la palabra reservada e invocar a todo el menú con (nombre de la clase).*
+//import static ui.UIMenu.*; //Debo utilizar de esta forma la palabra reservada e invocar a todo el menú con (nombre de la clase).*
+
+import java.util.Date;
 
 public class MainDoctor {
     public static void main(String[] args) {
@@ -6,9 +8,23 @@ public class MainDoctor {
         //Creando los objetos de tipo Doctor:
 
         Doctor doctor1=new Doctor("Daniel ortega","Médicina Genenal");
-        System.out.println("El nombre del doctor es: "+doctor1.name);
-        System.out.println("La especialidad del doctor es: "+doctor1.speciality);
-        doctor1.showId();
+        //Agregando una bueva cita al doctor
+
+        doctor1.addAvailableAppointment(new Date(),"4:00 pm");
+        doctor1.addAvailableAppointment(new Date(),"10:00 am");
+        doctor1.addAvailableAppointment(new Date(),"13:00 pm");
+
+       // System.out.println(doctor1.getAvailableAppointments()); //Solo devuelve la lista de los objetos que se crearon en memoria
+
+       /**
+        *  Para saber las citas que están disponibles y mandando a llamar la clase anidada fuera de la clase Doctor 
+        */
+
+        for (Doctor.AvailableAppointment aA :doctor1.getAvailableAppointments()) {
+
+            System.out.println(aA.getDate()+" "+aA.getTime());
+            
+        }
 
         //LLamando a los métodos del Menú
 
@@ -18,8 +34,8 @@ public class MainDoctor {
         //Creando los objetos de tipo Patient
 
         Patient paciente1=new Patient("Alejandra López","alejandra_lopez@gmail.com");
-        System.out.println(paciente1.name);
-        System.out.println(paciente1.email);
+       
+        System.out.println(paciente1);
 
 
 
@@ -41,6 +57,8 @@ public class MainDoctor {
          * Reglas de negocio:
          * 
          * Realizar la identificación si es un paciente o un doctor por medio del correo electrónico
+         * 
+         * El doctor puede definir las fechas en las que está disponible
          */
 
 
