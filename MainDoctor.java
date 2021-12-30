@@ -2,17 +2,26 @@
 
 import java.util.Date;
 
+import model.Doctor;
+import model.Patient;
+
 public class MainDoctor {
     public static void main(String[] args) {
 
+        //LLamando a los métodos del Menú
+
+         //showMenu();
+
         //Creando los objetos de tipo Doctor:
 
-        Doctor doctor1=new Doctor("Daniel ortega","Médicina Genenal");
+        Doctor doctor1=new Doctor("Dulce Blanco López","dulceblanco@gmail.com");
         //Agregando una bueva cita al doctor
 
         doctor1.addAvailableAppointment(new Date(),"4:00 pm");
         doctor1.addAvailableAppointment(new Date(),"10:00 am");
         doctor1.addAvailableAppointment(new Date(),"13:00 pm");
+
+        System.out.println(doctor1);
 
        // System.out.println(doctor1.getAvailableAppointments()); //Solo devuelve la lista de los objetos que se crearon en memoria
 
@@ -20,15 +29,17 @@ public class MainDoctor {
         *  Para saber las citas que están disponibles y mandando a llamar la clase anidada fuera de la clase Doctor 
         */
 
+        /*
+
         for (Doctor.AvailableAppointment aA :doctor1.getAvailableAppointments()) {
 
             System.out.println(aA.getDate()+" "+aA.getTime());
             
         }
 
-        //LLamando a los métodos del Menú
+        */
 
-        //showMenu();
+        
 
 
         //Creando los objetos de tipo Patient
@@ -59,6 +70,8 @@ public class MainDoctor {
          * Realizar la identificación si es un paciente o un doctor por medio del correo electrónico
          * 
          * El doctor puede definir las fechas en las que está disponible
+         * 
+         * En el print del paciente hace uso del método toString pra que me regerse los valores que le indiqué en el método 
          */
 
 

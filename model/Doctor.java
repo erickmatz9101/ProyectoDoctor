@@ -1,3 +1,4 @@
+package model;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -10,13 +11,13 @@ public class Doctor extends User {
 
     //Creando el método constructor de la clase Doctor
 
-    Doctor(String name, String email){
+     public Doctor(String name, String email){
 
     //LLamando al constructor de la clase padre por medio de super
 
         super(name, email);
 
-        System.out.println("El nombre del doctor asignado es: "+name);
+        System.out.println("El nombre del doctor asignado es: "+ name);
 
         this.speciality=speciality;
 
@@ -50,13 +51,18 @@ public class Doctor extends User {
         return availableAppointments;
     }
 
+    //Sobreescribiendo el método toString para la calse Doctor y modificar el comportamiento 
 
-    //Creando el método que permitirá poder agregar una cita para los pacientes
+    public String toString() {
+        return super.toString() + "\nSpeciality: " + speciality + "\nAvailable: " + availableAppointments.toString();
+    }
 
+
+  
 
     
     //Creando la clase anidada privada dentro de doctor y encapsulando sus atributos
-    public static class AvailableAppointment{
+    public static class AvailableAppointment{ 
 
         //Definiendo los atributos de la clase
 
@@ -98,6 +104,15 @@ public class Doctor extends User {
                 this.time = time;
         }
 
+        //Sobreescribiendo el método toString en la clase vailableAppointment para cambiar su comportamineto
+        //En éste caso imprimir las fechas disponibles que tiene el doctor en ese momento.
+
+        public String toString (){
+
+            return "Available Appointments \nDate: " +date+ "\nTime: " + time;
+
+        }
+
 
     }
 
@@ -122,4 +137,15 @@ public class Doctor extends User {
  * El método es el que crea las citas, no debo olvidar que para madar a llamar a la clase anidada debe ser primero con el nombre de la 
  * clase padre que en éste caso es Doctor.availableAppointment y asi cada que yo agregue una cita voy a estar creando objetos de tipo
  * availableAppointment con 2 parámetros, fecha y hora.
+ * 
+ * Se hizo uso del método toString para sobreescribir el comportamiento de la clase availableAppointment y a través de éste método poder imprimir
+ * las citas que estuvieran dispobibles para cada doctor.
+ * 
+ * En la clase doctor se uso el método toString de igual manera para sobreescribir el método y que cuando imprima el nombre de un doctor 
+ * agregue la información de especialidad, citas disponibles, usa el método toString para que muestre los datos de la cita, esto es porque
+ * sino como ya lo había echo antes muestra el espacio en la meoria de cada cita dentro de array
+ * 
+ * Al hacer uso de las interfaces debo haceer público el constructor de la clase Doctor, User, Nurse y Patient para que su scope sea mayor y 
+ * pueda usarlo en las nuevas clases que generé
+ * 
  */
