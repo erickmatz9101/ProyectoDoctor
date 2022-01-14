@@ -71,6 +71,12 @@ public abstract class User {
                 "\nAddreess: "+address+". Phone: "+phoneNumber;
     }
 
+    //Definiendo un método abstracto para la clase User.
+
+    public abstract void showDataUser();
+
+
+
 
 
 
@@ -80,4 +86,9 @@ public abstract class User {
 
 
 
-/**ésta clase cumple con el papel de la clase padre que hereda los atributos que tienen en comun las clases hijo (Doctor y Patient) */
+/**ésta clase cumple con el papel de la clase padre que hereda los atributos que tienen en comun las clases hijo (Doctor y Patient)
+ * 
+ * ShowDataUser: Al ser de tipo abstracto el método permite que al heredarlo a las clases hijo pueda hacer uso del polimorfismo también,
+ * ésto debido a que si es un usuario de tipo empleado (Nurse o Doctor) muestre cierta información, y si es Paciente muestre los datos
+ * que son relevantes en éste usuario.  Es decir no muestra la misma información si eres usuario que si eres paciente.
+ */

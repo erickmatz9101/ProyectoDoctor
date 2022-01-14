@@ -4,6 +4,7 @@ import java.util.Date;
 
 import model.Doctor;
 import model.Patient;
+import model.User;
 
 public class MainDoctor {
     public static void main(String[] args) {
@@ -22,6 +23,21 @@ public class MainDoctor {
         doctor1.addAvailableAppointment(new Date(),"13:00 pm");
 
         System.out.println(doctor1);
+
+
+
+        //Generando objetos de tipo User que toman el comportamiento de la clase doctor y el método showDataUser
+
+        User usuario1=new Doctor("Daniel Ortega", "daniel.otega.schz@gmail.com");
+
+        usuario1.showDataUser();
+
+        
+
+        //Generando objetos de tipo Paciente que toman el comportamiento de la clase paciente y el método showDataUser
+
+        User paciente3=new Patient("Karla Morales", "karla_momtz@gmail.com");
+        paciente3.showDataUser();
 
        // System.out.println(doctor1.getAvailableAppointments()); //Solo devuelve la lista de los objetos que se crearon en memoria
 

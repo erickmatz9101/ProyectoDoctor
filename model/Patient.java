@@ -11,7 +11,7 @@ public class Patient extends User {
 
     //Metodo constructor de la clase Patient
 
-      public Patient(String name, String email){
+    public Patient(String name, String email){
 
      //LLamando al constructor de la clase padre por medio de super
         
@@ -59,6 +59,17 @@ public class Patient extends User {
     //Nuevamente haciendo uso de la clase toString para sobreescribir el comportamiento de paciente
     public String toString() {
         return super.toString() + "\nAge: " + birthday + "\n Weight: " +getWeight()+ "\n Height: "+getHeight()+"\nBlood: "+blood;
+    }
+
+    //Implementando el método abstracto de forma obligatoria en la clase Paciente
+
+    @Override
+    public void showDataUser() {
+
+        System.out.println("Paciente");
+        System.out.println("Es paciente desde el 01/03/18");
+       
+        
     }
 
 

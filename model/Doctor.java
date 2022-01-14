@@ -116,6 +116,16 @@ public class Doctor extends User {
 
     }
 
+    //Implementando el método abstracto de forma obligatoria en la clase Doctor
+
+         public void showDataUser() {
+
+            System.out.println("Empleado del Hospital: Cruz Roja");
+            System.out.println("Departamento: Oncología");
+        
+        
+         }
+
     
     
 }

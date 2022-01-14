@@ -22,5 +22,17 @@ public class Nurse extends User {
     }
 
 
+    //Implementando el método abstracto de forma obligatoria en la clase Nurse
+
+    @Override
+    public void showDataUser() {
+
+        System.out.println(" Empleado del Hospital: Cruz Verde");
+        System.out.println("Departamentos: Oncología, Nutrición, Pediatría");
+        
+        
+    }
+
+
     
 }
