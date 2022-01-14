@@ -38,6 +38,8 @@ public class UIDoctorMenu {
 
             switch (response) {
                 case 1:
+
+                showAddAvailableAppoinmentsMenu();
                     
                     break;
                 case 2:
@@ -97,7 +99,7 @@ public class UIDoctorMenu {
 
                 //Indica en que mes está ubicado
 
-                System.out.println(monthSelected + "." + UIMenu.MONTHS[monthSelected]);
+                System.out.println(monthSelected + "." + UIMenu.MONTHS[monthSelected-1]); //se coloca el -1 por cuestion de los indices del arreglo
 
                 System.out.println("Insert te date avilable [dd/mm/yyyy]");
 

@@ -20,10 +20,7 @@ public class Doctor extends User {
 
         super(name, email);
 
-        System.out.println("El nombre del doctor asignado es: "+ name);
-
-        this.speciality=speciality;
-
+        
     }
 
     //Generando los Gett y Sett de speciality 
