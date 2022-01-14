@@ -1,6 +1,9 @@
 package model;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.regex.Pattern;
 
 public class Doctor extends User {
 
@@ -39,7 +42,7 @@ public class Doctor extends User {
 
     //Método que añade las citas, las cuales se acumulan en el array de arriba
 
-    public void addAvailableAppointment(Date date, String time){
+    public void addAvailableAppointment(String date, String time){
 
         availableAppointments.add(new Doctor.AvailableAppointment(date,time));
 
@@ -70,12 +73,20 @@ public class Doctor extends User {
         private Date date;
         private String time;
 
+        //Haciendo uso de la clase SimpleDateFormat para darle formato a las fechas de las citas (recuerda que son objetos)
+
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+
         //Generando el método constructor en el cual se necesita mínimo la fecha y hora para que se cree una cita disponible 
 
-        public AvailableAppointment(Date date,String time){
+        public AvailableAppointment(String date,String time){
 
-            this.date=date;
-            this.time=time;
+            try {
+                this.date = format.parse(date);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            this.time = time;
     }
 
             //Generando los get y set de los atributos
@@ -91,6 +102,10 @@ public class Doctor extends User {
         public Date getDate() {
                 return date;
         }
+
+        public String getDate(String DATE) {
+            return format.format(date);
+    }
     
         public void setDate(Date date) {
                 this.date = date;
@@ -158,4 +173,12 @@ public class Doctor extends User {
  * Al hacer uso de las interfaces debo haceer público el constructor de la clase Doctor, User, Nurse y Patient para que su scope sea mayor y 
  * pueda usarlo en las nuevas clases que generé
  * 
+ * 
+ * 
+ * Línea 84-88: La finalidad es hacer un "casteo en este caso el dato de entrada es un string y lo que se espera es que devuelva un date"
+ * por ello hacemos uso de esa clase SimpleDateFormat, para ello hacemos uso de igual manera del try, catch el cual es una excepcio, y una
+ * prevencion, ésto es para definir de una forma mas amigable en caso de teber algún error que queremos que haga nuesto sistema(catch).
+ *      
+ * Línea 106: esto es en caso de que quisiera devolver el dato como un String que no trasnsforme el objeto date a un afecha con el for
+ * mato anterior por ello me conviene configurarlo de esa manera
  */
