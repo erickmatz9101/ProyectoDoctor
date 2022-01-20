@@ -10,6 +10,10 @@ public class Doctor extends User {
     //Atributo que diferencia un Doctor de un paciente
 
     private String speciality;
+
+    //Éste array guarda los abjetos de tipo cita (availableApointment)
+
+     private ArrayList<AvailableAppointment> availableAppointments = new ArrayList<>();
     
 
     //Creando el método constructor de la clase Doctor
@@ -33,9 +37,7 @@ public class Doctor extends User {
         this.speciality = speciality;
     }
 
-    //Éste array guarda los abjetos de tipo cita (availableApointment)
-
-    ArrayList<AvailableAppointment> availableAppointments = new ArrayList<>();
+    
 
     //Método que añade las citas, las cuales se acumulan en el array de arriba
 
@@ -96,11 +98,11 @@ public class Doctor extends User {
                 this.id = id;
         }
     
-        public Date getDate() {
+        public Date getDate(String DATE) {
                 return date;
         }
 
-        public String getDate(String DATE) {
+        public String getDate() {
             return format.format(date);
     }
     
